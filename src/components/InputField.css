@@ -1,0 +1,29 @@
+:root {
+  --primaryColor: black;
+  --primaryColor2: rgb(3, 66, 110);
+  --secondaryColor: rgb(54, 54, 54);
+  --secondaryColor2: rgb(34, 34, 34);
+  --secondaryColor3: rgb(128, 209, 1);
+  --whiteColor: white;
+  --subHeadingColor: rgb(180, 180, 180);
+}
+
+.search_input {
+  padding: 13px;
+  /* border: 2px solid var(--primaryColor2); */
+  border: none;
+  /* background-color: rgb(255, 255, 255); */
+  background-color: #d9d9d9;
+  background-image: url("../img/search.png");
+  background-position: 800px 5px;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+  display: block;
+  width: 100%;
+}
+
+.search_input:focus {
+  outline: none;
+  border: 1px solid #000;
+}
