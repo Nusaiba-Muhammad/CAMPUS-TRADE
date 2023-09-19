@@ -1,5 +1,5 @@
 import AppNavigation from "./Routes/AppNavigation";
-import New from "./components/New";
+import New from "./components/SideBarNew";
 
 function App() {
   return (

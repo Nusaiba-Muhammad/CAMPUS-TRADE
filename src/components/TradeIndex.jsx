@@ -84,7 +84,7 @@ export default function TradeIndex() {
   return (
     <div>
       <Row className="trade_index pt-4 pb-4 m-0 p-0">
-        <Col md={2}>
+        {/* <Col md={2}>
           <Card className="index_top_card shadow-sm p-3 tins">
             <h3>EXPLORE</h3>
 
@@ -111,9 +111,9 @@ export default function TradeIndex() {
             <p className="categories_item">Inhalants</p>
             <p className="categories_item">Cannabis</p>
           </Card>
-        </Col>
+        </Col> */}
 
-        <Col md={10}>
+        <Col md={12}>
           <div className="container">
             <Row>
               <Col md={9}>
