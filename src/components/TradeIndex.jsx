@@ -12,6 +12,7 @@ import inna from "../img/inna.jpg";
 import "../App.css";
 import { Plus, XCircle, Phone, Bookmark } from "react-feather";
 import SideBarNew from "./SideBarNew";
+import TradeNavbar from "./TradeNavbar";
 
 export default function TradeIndex() {
   const navigate = useNavigate();
@@ -98,10 +99,25 @@ export default function TradeIndex() {
     },
   ];
 
+  const [filterText, setFilterText] = useState("");
+  const rows = [];
+  itemData.forEach((p) => {
+    if (
+      p.itemName &&
+      p.itemName.toLowerCase().indexOf(filterText.toLowerCase()) === -1
+    )
+      return;
+    else rows.push(p);
+  });
+
   // **************SIDEBAR DROPDOWN******************
 
   return (
     <div>
+      <TradeNavbar
+        value={filterText}
+        handleChange={(e) => setFilterText(e.target.value)}
+      />
       <Row className="trade_index pt-4 pb-4 m-0 p-0">
         <Col md={2}>
           <Card className="index_top_card shadow-sm p-3 tins">
@@ -151,7 +167,7 @@ export default function TradeIndex() {
             </Row>
 
             <Row>
-              {itemData.map((item) => (
+              {rows.map((item) => (
                 <Col lg={3}>
                   <Card
                     className="index_card shadow-sm p-1"

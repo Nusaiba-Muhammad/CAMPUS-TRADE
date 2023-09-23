@@ -11,7 +11,7 @@ import InputField from "./InputField";
 import "../components/InputField.css";
 import "../App.css";
 
-export default function TradeNavbar() {
+export default function TradeNavbar({ value, handleChange }) {
   const navigate = useNavigate();
 
   return (
@@ -32,6 +32,8 @@ export default function TradeNavbar() {
                 <InputField
                   type={"text"}
                   name="searchDrugs"
+                  value={value}
+                  onChange={handleChange}
                   placeholder={"Search Items"}
                   className="search_input"
                 />
