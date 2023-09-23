@@ -122,12 +122,13 @@
 .trade_index_modal {
   border: none !important;
   border-radius: 0 !important;
-  padding: 20px;
+  /* padding: 20px; */
 }
+
 .cart_image {
-  width: 200px;
-  /* justify-content: center; */
+  width: 300px;
   align-items: center;
+  /* margin-top: 5rem; */
 }
 .cart_item_name {
   color: #000;
@@ -163,9 +164,7 @@
   border-radius: 5px;
   padding: 8px;
 }
-hr {
-  /* height: 50px; */
-}
+
 .absolute {
   position: absolute;
   top: -10px;
@@ -187,4 +186,37 @@ hr {
 }
 .drop {
   border: none;
+}
+ul li {
+  font-size: 16px;
+  padding-bottom: 5px;
+  font-weight: 500;
+}
+
+.seller-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* .second_card img {
+  border-radius: 100%;
+} */
+.tutor-sec {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.tutor_generic_name {
+  font-weight: 400;
+  font-size: 20px;
+  padding-left: 1rem;
+  margin-top: 2rem;
+}
+.course_name {
+  font-size: 35px;
+  padding: 2rem;
+  margin-top: 0;
+}
+.bookmark {
+  margin-left: 4rem;
 }

@@ -7,15 +7,11 @@ import ladies from "../img/ladies-removebg.png";
 import profile from "../img/profile.jpg";
 import deep from "../img/deeps5.jpg";
 import { useNavigate } from "react-router-dom";
+import inna from "../img/inna.jpg";
 
 import "../App.css";
-import {
-  Plus,
-  XCircle,
-  Phone,
-  ChevronRight,
-  ChevronsRight,
-} from "react-feather";
+import { Plus, XCircle, Phone, Bookmark } from "react-feather";
+import SideBarNew from "./SideBarNew";
 
 export default function TradeIndex() {
   const navigate = useNavigate();
@@ -24,10 +20,7 @@ export default function TradeIndex() {
   const toggle = () => {
     setOpen(!open);
   };
-  const [open2, setOpen2] = useState(false);
-  const toggle2 = () => {
-    setOpen2(!open2);
-  };
+
   const itemData = [
     {
       itemImage: bag,
@@ -78,42 +71,46 @@ export default function TradeIndex() {
       itemPrice: "#2000 per hour",
     },
   ];
+  const tutorData = [
+    {
+      tutorImage: profile,
+      tutorDescription: "Baby girl",
+      itemName: "Mathematics Tutor",
+      itemPrice: "#2000 per hour",
+    },
+    {
+      tutorImage: deep,
+      tutorDescription: "Baby girl",
+      itemName: "Mathematics Tutor",
+      itemPrice: "#2000 per hour",
+    },
+    {
+      tutorImage: profile,
+      tutorDescription: "Baby girl",
+      itemName: "Mathematics Tutor",
+      itemPrice: "#2000 per hour",
+    },
+    {
+      tutorImage: deep,
+      tutorDescription: "Baby girl",
+      itemName: "Mathematics Tutor",
+      itemPrice: "#2000 per hour",
+    },
+  ];
 
   // **************SIDEBAR DROPDOWN******************
 
   return (
     <div>
       <Row className="trade_index pt-4 pb-4 m-0 p-0">
-        {/* <Col md={2}>
+        <Col md={2}>
           <Card className="index_top_card shadow-sm p-3 tins">
             <h3>EXPLORE</h3>
-
-            <p className="categories_item">
-              Tutoring <ChevronRight />
-            </p>
-            <p className="categories_item">
-              Books <ChevronRight />
-            </p>
-            <p className="categories_item">
-              Non-academic material <ChevronRight />
-            </p>
-            <p className="categories_item">
-              Services <ChevronRight />
-            </p>
-            <p className="categories_item">
-              Cannabis <ChevronRight />
-            </p>
-            <hr />
-            <p className="categories_item">CNS Stimulants </p>
-            <p className="categories_item"> Hallucinogens</p>
-            <p className="categories_item">Dissociative Anesthetics</p>
-            <p className="categories_item">Narcotic Analgesics</p>
-            <p className="categories_item">Inhalants</p>
-            <p className="categories_item">Cannabis</p>
+            <SideBarNew />
           </Card>
-        </Col> */}
+        </Col>
 
-        <Col md={12}>
+        <Col md={10}>
           <div className="container">
             <Row>
               <Col md={9}>
@@ -163,9 +160,8 @@ export default function TradeIndex() {
                       setSelectItem(item);
                     }}
                   >
-                    {/* <CardBody> */}
                     <img src={item.itemImage} alt="" />
-                    {/* </CardBody> */}
+
                     <div>
                       <h5 className="item_name">
                         {item.itemName.length > 14
@@ -180,7 +176,44 @@ export default function TradeIndex() {
                       <h5 className="item_name">{item.itemPrice}</h5>
                     </div>
                     <button className="trade_btn add_to_cart_btn m-3">
-                      ADD TO CART
+                      VIEW
+                    </button>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+            <Row>
+              {tutorData.map((item) => (
+                <Col lg={3}>
+                  <Card
+                    className="index_card shadow-sm p-1 second_card"
+                    onClick={() => {
+                      toggle();
+                      setSelectItem(item);
+                    }}
+                  >
+                    <div className="tutor-sec">
+                      <img src={item.tutorImage} alt="" width={90} />
+                      <p className="tutor_generic_name">
+                        {item.tutorDescription.length > 20
+                          ? `${item.tutorDescription.substring(0, 20)}...`
+                          : item.tutorDescription}
+                      </p>
+                      <Bookmark size={30} className="bookmark" />
+                    </div>
+                    <hr />
+
+                    <div>
+                      <h5 className="course_name">
+                        {item.itemName.length > 30
+                          ? `${item.itemName.substring(0, 30)}...`
+                          : item.itemName}
+                      </h5>
+
+                      <h5 className="item_name">{item.itemPrice}</h5>
+                    </div>
+                    <button className="trade_btn add_to_cart_btn m-3">
+                      VIEW
                     </button>
                   </Card>
                 </Col>
@@ -190,39 +223,53 @@ export default function TradeIndex() {
         </Col>
       </Row>
 
-      <Modal size="lg" isOpen={open} className="trade_index_modal">
+      <Modal size="xl" isOpen={open} className="trade_index_modal">
         <Row className="p-4">
-          <Col md={3}>
+          <Col md={4}>
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                height: "140px",
+                height: "350px",
               }}
             >
               <div>
-                <img src={selectItem.itemImage} className="cart_image" alt="" />
+                <img
+                  src={selectItem.tutorImage}
+                  className="cart_image"
+                  alt=""
+                />
               </div>
             </div>
           </Col>
-          <Col md={7}>
+          <Col md={7} className="second-column">
             <h3 className="cart_item_name">{selectItem.itemName}</h3>
             <p className="cart_item_description">
               {selectItem.itemDescription}
             </p>
             <h3 className="cart_item_price">{selectItem.itemPrice}</h3>
             <hr />
+            <div className="seller-div">
+              <div>
+                <img src={profile} alt="profile" width={60} />
+                <span className="seller-name">Mr.Ikechukwu Onono</span>
+              </div>
+              <div>
+                <button className="contact-button">
+                  Contact seller <Phone />
+                </button>
+              </div>
+            </div>
+            <hr />
             <div>
-              <img src={profile} alt="profile" width={60} />
-              <span className="seller-name">Mr.Ikechukwu Onono</span>
-              <button className="contact-button">
-                Contact seller <Phone />
-              </button>
+              <ul>
+                <li>Remember, dont send any pre-payment</li>
+                <li>Meet the seller at a safe public plac</li>
+                <li>Inspect the goods to make sure they meet your need</li>
+                <li>Check all documentation and only pay if youre satisfie</li>
+              </ul>
               <hr />
-              {/* <div style={{ textAlign: "left" }}>
-                <p className="shipping_fee">Shipping fee: 1 Near</p>
-              </div> */}
             </div>
 
             <button
@@ -231,10 +278,10 @@ export default function TradeIndex() {
               onClick={() => navigate("/cart")}
               style={{ width: "100%" }}
             >
-              Add to cart
+              Add to favorites
             </button>
           </Col>
-          <Col md={2}>
+          <Col md={1}>
             <XCircle
               size="2em"
               className="modal_closer"

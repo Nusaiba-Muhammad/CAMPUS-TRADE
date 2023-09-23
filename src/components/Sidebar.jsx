@@ -9,13 +9,17 @@ import { Link } from "react-router-dom";
 
 const Sidebar = ({ SidebarData, isOpen, toggleDropdown }) => {
   return (
-    <Dropdown isOpen={isOpen} toggle={toggleDropdown}>
+    <Dropdown
+      className=" categories_item "
+      isOpen={isOpen}
+      toggle={toggleDropdown}
+    >
       <DropdownToggle caret>{SidebarData.text}</DropdownToggle>
       <DropdownMenu>
         {SidebarData.children.map((child, index) => (
-          <DropdownItem key={index}>
+          <p key={index} className="categories_item">
             <Link to={child.route}>{child.text}</Link>
-          </DropdownItem>
+          </p>
         ))}
       </DropdownMenu>
     </Dropdown>
