@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <span class="background"></span>
+    <span class="centering">
+        <form class="my-form">
+            <span class="signup-welcome-row">
+                <!-- <img class="signup-welcome" src=""> -->
+                <h1>Login</h1>
+                <span class="spantxt">Hey! Enter your details to login to your CampusTrade account.</span>
+            </span>
+            <span class="socials-row">
+                <a href="#" title="Use Google">
+                    <img src="google.png" alt="Google">
+                    Login with Google
+                </a>
+            </span>
+            <span class="divider">
+                <span class="divider-line"></span>
+                OR
+                <span class="divider-line"></span>
+            </span>
+            <div class="my-form_content">
+                <div class="text-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com" autocomplete="off" required>
+                </div>
+                <div class="text-field">
+                    <label for="pword">Password</label>
+                    <input type="password" id="pword" name="email" placeholder="Must be 8 characters" autocomplete="off" required>
+                </div><br>
+                <div class="chkbx">
+                    <input type="checkbox" name="os" id="ch1">
+                    <label for="ch1">Remember me</label>
+                </div>
+                <input type="submit" class="my-form_button" value="Log in">
+            </div>
+            <div class="my-form_actions">
+                <span>
+                    <p>By loging in you agree to our <a href="#" title="reset t">Terms</a>
+                        and <a href="#" title="reset c"> Conditions</a>
+                    </span><br><br></p>
+                <div class="my-form_signin">don't have an account?<a href="#" title="sign-in">Sign-up</a>
+                </div>
+            </div>
+        </form>
+    </span>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

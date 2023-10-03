@@ -28,7 +28,7 @@
 }
 .categories_item:hover {
   cursor: pointer;
-  color: #dce2a1;
+  /* color: #dce2a1; */
 }
 .index_top_card {
   /* height: 100vh; */
@@ -126,9 +126,9 @@
 }
 
 .cart_image {
-  width: 300px;
+  width: 250px;
   align-items: center;
-  /* margin-top: 5rem; */
+  margin-top: 5rem;
 }
 .cart_item_name {
   color: #000;
@@ -219,4 +219,24 @@ ul li {
 }
 .bookmark {
   margin-left: 4rem;
+}
+.login-button {
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: none;
+}
+.signup-button {
+  background-color: #ffb020;
+  color: #000;
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: none;
+}
+.is-wrapper-open {
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: 250ms;
 }

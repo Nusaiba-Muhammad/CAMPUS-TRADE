@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Col, Row, Modal } from "reactstrap";
+import { Card, Col, Row, Modal, Button } from "reactstrap";
 import jacket from "../img/jacket.jpg";
 import shirt from "../img/shirt.jpg";
 import bag from "../img/bag.jpg";
@@ -7,7 +7,8 @@ import ladies from "../img/ladies-removebg.png";
 import profile from "../img/profile.jpg";
 import deep from "../img/deeps5.jpg";
 import { useNavigate } from "react-router-dom";
-import inna from "../img/inna.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { ADD_ITEM_TO_CART } from "../redux/action/ActionType";
 
 import "../App.css";
 import { Plus, XCircle, Phone, Bookmark } from "react-feather";
@@ -21,30 +22,34 @@ export default function TradeIndex() {
   const toggle = () => {
     setOpen(!open);
   };
+  const [open2, setOpen2] = useState(false);
+  const toggle2 = () => {
+    setOpen2(!open2);
+  };
 
   const itemData = [
     {
       itemImage: bag,
       itemDescription: "awsdfgfhnjhkmhnbgfvcdxszdfghh",
-      itemName: "Jacket",
+      itemName: "Bag",
       itemPrice: "#2000",
     },
     {
       itemImage: shirt,
       itemDescription: "awsdfgfhnjhkmhnbgfvcdxszdfghh",
-      itemName: "Jacket",
+      itemName: "Shirt",
       itemPrice: "#2000",
     },
     {
       itemImage: bag,
       itemDescription: "awsdfgfhnjhkmhnbgfvcdxszdfghh",
-      itemName: "Jacket",
+      itemName: "Bag",
       itemPrice: "#2000",
     },
     {
       itemImage: shirt,
       itemDescription: "awsdfgfhnjhkmhnbgfvcdxszdfghh",
-      itemName: "Jacket",
+      itemName: "Shirt",
       itemPrice: "#2000",
     },
     {
@@ -76,7 +81,7 @@ export default function TradeIndex() {
     {
       tutorImage: profile,
       tutorDescription: "Baby girl",
-      itemName: "Mathematics Tutor",
+      itemName: "AI Tutor",
       itemPrice: "#2000 per hour",
     },
     {
@@ -88,7 +93,7 @@ export default function TradeIndex() {
     {
       tutorImage: profile,
       tutorDescription: "Baby girl",
-      itemName: "Mathematics Tutor",
+      itemName: "English Tutor",
       itemPrice: "#2000 per hour",
     },
     {
@@ -109,6 +114,14 @@ export default function TradeIndex() {
       return;
     else rows.push(p);
   });
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    console.log(item);
+    dispatch({
+      type: ADD_ITEM_TO_CART,
+      payload: item,
+    });
+  };
 
   // **************SIDEBAR DROPDOWN******************
 
@@ -198,43 +211,7 @@ export default function TradeIndex() {
                 </Col>
               ))}
             </Row>
-            <Row>
-              {tutorData.map((item) => (
-                <Col lg={3}>
-                  <Card
-                    className="index_card shadow-sm p-1 second_card"
-                    onClick={() => {
-                      toggle();
-                      setSelectItem(item);
-                    }}
-                  >
-                    <div className="tutor-sec">
-                      <img src={item.tutorImage} alt="" width={90} />
-                      <p className="tutor_generic_name">
-                        {item.tutorDescription.length > 20
-                          ? `${item.tutorDescription.substring(0, 20)}...`
-                          : item.tutorDescription}
-                      </p>
-                      <Bookmark size={30} className="bookmark" />
-                    </div>
-                    <hr />
-
-                    <div>
-                      <h5 className="course_name">
-                        {item.itemName.length > 30
-                          ? `${item.itemName.substring(0, 30)}...`
-                          : item.itemName}
-                      </h5>
-
-                      <h5 className="item_name">{item.itemPrice}</h5>
-                    </div>
-                    <button className="trade_btn add_to_cart_btn m-3">
-                      VIEW
-                    </button>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
+            {/*   */}
           </div>
         </Col>
       </Row>
@@ -251,11 +228,7 @@ export default function TradeIndex() {
               }}
             >
               <div>
-                <img
-                  src={selectItem.tutorImage}
-                  className="cart_image"
-                  alt=""
-                />
+                <img src={selectItem.itemImage} className="cart_image" alt="" />
               </div>
             </div>
           </Col>
@@ -291,7 +264,11 @@ export default function TradeIndex() {
             <button
               className="trade_btn add_to_cart_btn mt-3"
               btnText={`Add to cart`}
-              onClick={() => navigate("/cart")}
+              //
+              onClick={() => {
+                handleAddItem(selectItem);
+                toggle2();
+              }}
               style={{ width: "100%" }}
             >
               Add to favorites
@@ -306,6 +283,31 @@ export default function TradeIndex() {
             />
           </Col>
         </Row>
+      </Modal>
+      <Modal isOpen={open2} className="p-4">
+        <div className="p-4">
+          <Row className="text-center">
+            <p className="added_notificatio">
+              A new item has been added to your Shopping Cart.
+            </p>
+            <Col md={6}>
+              <Button
+                className={"pharmacy_btn add_to_cart_btn mt-2"}
+                btnText={`View Shopping cart`}
+                onClick={() => navigate("/cart")}
+              />
+            </Col>
+            <Col md={6}>
+              <Button
+                className={
+                  "pharmacy_btn add_to_cart_btn continue_shopping mt-2"
+                }
+                btnText={`Continue shopping`}
+                onClick={toggle2}
+              />
+            </Col>
+          </Row>
+        </div>
       </Modal>
     </div>
   );

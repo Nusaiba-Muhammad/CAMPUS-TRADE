@@ -56,7 +56,7 @@
 }
 .categories_item:hover {
   cursor: pointer;
-  color: #dce2a1;
+  /* color: #dce2a1; */
 }
 .space {
   margin-right: 10px;
