@@ -77,11 +77,8 @@ export default function TradeNavbar({ value, handleChange }) {
                 <img src={bell} alt="" />
               </div> */}
               {/* <div className="icon_div p-1" onClick={() => navigate("/admin")}>
-                <img src={help} alt="" />
-              </div> */}
-              <div className="icon_div p-1" onClick={() => navigate("/admin")}>
                 <img src={account} alt="" />
-              </div>
+              </div> */}
 
               <button className="login-button" onClick={toggle1}>
                 <Modal isOpen={modal} toggle={toggle1}>
@@ -100,41 +97,7 @@ export default function TradeNavbar({ value, handleChange }) {
                 SIGNUP
               </button>
 
-              <div>
-                {/* <Dropdown isOpen={dropdown} toggle={toggle}>
-                  <DropdownToggle>
-                    <span>Account</span> <img src={account} alt="" />
-                  </DropdownToggle>
-                  <DropdownMenu className="mt-4">
-                    <DropdownItem>
-                      {" "}
-                      <ButtonGroup className="mb-2">
-                        <Button className="mr-1" onClick={toggle1}>
-                          <Modal isOpen={modal} toggle={toggle1}>
-                            <ModalBody>
-                              
-                            </ModalBody>
-                          </Modal>
-                          Register
-                        </Button>
-                        <Button className="mr-1" onClick={toggle2}>
-                          <Modal isOpen={mymodal} toggle={toggle2}>
-                            <ModalBody>
-                              
-                            </ModalBody>
-                          </Modal>
-                          Sign in
-                        </Button>
-                      </ButtonGroup>
-                    </DropdownItem>
-                    <DropdownItem className="mb-1">My Orders</DropdownItem>
-                    <DropdownItem className="mb-1">
-                      Payment Item Text
-                    </DropdownItem>
-                    <DropdownItem className="mb-1">Message center</DropdownItem>
-                  </DropdownMenu>
-                </Dropdown> */}
-              </div>
+              <div></div>
             </div>
           </Col>
         </Row>

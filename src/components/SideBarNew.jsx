@@ -58,56 +58,59 @@ function SideBarNew() {
     <div className="dropdown ">
       {dropdownData.map((parent, index) => (
         <div key={index} className="categories_item">
-          <p className="categories_item" onClick={() => toggleDropdown(index)}>
+          <div
+            className="categories_item"
+            onClick={() => toggleDropdown(index)}
+          >
             {parent.text}
             <ChevronRight
               className={`fa fa-chevron-right icon ${
                 isItemOpen(index) && "open"
               }`}
             />
-          </p>
-          <p
+          </div>
+          <div
             className={`dropdown-body categoris_item ${
               isItemOpen(index) && "open"
             }`}
           >
             {parent.children.map((child, childIndex) => (
               <Link to={child.route} className="dropdown-item" key={childIndex}>
-                <p className="">
+                <div className="">
                   <span
                     className={`dropdown-item-dot ${
                       isItemOpen(index) && "selected"
                     }`}
                   ></span>
-                </p>
+                </div>
                 {child.text}
               </Link>
             ))}
-          </p>
+          </div>
           {/* <hr /> */}
         </div>
       ))}
       <hr />
-      <p className="categories_item">
+      <div className="categories_item">
         {" "}
         <Bookmark className="space" />
         Favorites
-      </p>
-      <p className="categories_item">
+      </div>
+      <div className="categories_item">
         {" "}
         <MessageCircle className="space" />
         FAQs
-      </p>
-      <p className="categories_item">
+      </div>
+      <div className="categories_item">
         {" "}
         <HelpCircle className="space" />
         Help
-      </p>
-      <p className="categories_item">
+      </div>
+      <div className="categories_item">
         {" "}
         <MessageSquare className="space" />
         Supports
-      </p>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../signup.css";
 import { useNavigate } from "react-router-dom";
 import useToogle from "./useToogle";
@@ -6,6 +6,7 @@ import useToogle from "./useToogle";
 export default function Signup() {
   const navigate = useNavigate();
   const { open, toogle } = useToogle();
+//   const [ otp, setOTP ] = useState([0,0,0,0]);
   return (
     <div>
       {!open ? (
@@ -98,9 +99,9 @@ export default function Signup() {
           </div>
         </form>
       ) : (
-        <form className="my-form is-form-open ">
-          <div className=" wrapper is-wrapper-open">
-            <div className="row--flex">
+        <form className="my-form">
+          <div className="">
+            <div className="">
               <svg
                 onClick={toogle}
                 width={32}

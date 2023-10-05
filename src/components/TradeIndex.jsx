@@ -7,11 +7,11 @@ import ladies from "../img/ladies-removebg.png";
 import profile from "../img/profile.jpg";
 import deep from "../img/deeps5.jpg";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ADD_ITEM_TO_CART } from "../redux/action/ActionType";
 
 import "../App.css";
-import { Plus, XCircle, Phone, Bookmark } from "react-feather";
+import { Plus, XCircle, Phone } from "react-feather";
 import SideBarNew from "./SideBarNew";
 import TradeNavbar from "./TradeNavbar";
 
@@ -73,32 +73,6 @@ export default function TradeIndex() {
     {
       itemImage: deep,
       itemDescription: "Baby girl",
-      itemName: "Mathematics Tutor",
-      itemPrice: "#2000 per hour",
-    },
-  ];
-  const tutorData = [
-    {
-      tutorImage: profile,
-      tutorDescription: "Baby girl",
-      itemName: "AI Tutor",
-      itemPrice: "#2000 per hour",
-    },
-    {
-      tutorImage: deep,
-      tutorDescription: "Baby girl",
-      itemName: "Mathematics Tutor",
-      itemPrice: "#2000 per hour",
-    },
-    {
-      tutorImage: profile,
-      tutorDescription: "Baby girl",
-      itemName: "English Tutor",
-      itemPrice: "#2000 per hour",
-    },
-    {
-      tutorImage: deep,
-      tutorDescription: "Baby girl",
       itemName: "Mathematics Tutor",
       itemPrice: "#2000 per hour",
     },
@@ -264,12 +238,10 @@ export default function TradeIndex() {
             <button
               className="trade_btn add_to_cart_btn mt-3"
               btnText={`Add to cart`}
-              //
               onClick={() => {
                 handleAddItem(selectItem);
                 toggle2();
               }}
-              style={{ width: "100%" }}
             >
               Add to favorites
             </button>
@@ -288,24 +260,17 @@ export default function TradeIndex() {
         <div className="p-4">
           <Row className="text-center">
             <p className="added_notificatio">
-              A new item has been added to your Shopping Cart.
+              A new item has been added to your Favorites.
             </p>
             <Col md={6}>
-              <Button
+              <button
                 className={"pharmacy_btn add_to_cart_btn mt-2"}
-                btnText={`View Shopping cart`}
                 onClick={() => navigate("/cart")}
-              />
+              >
+                View Favorites
+              </button>
             </Col>
-            <Col md={6}>
-              <Button
-                className={
-                  "pharmacy_btn add_to_cart_btn continue_shopping mt-2"
-                }
-                btnText={`Continue shopping`}
-                onClick={toggle2}
-              />
-            </Col>
+            <Col md={6}></Col>
           </Row>
         </div>
       </Modal>

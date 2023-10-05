@@ -8,6 +8,7 @@ import AppIndex from "./AppIndex";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 import Form from "../components/Form";
+import PasswordReset from "../components/PasswordReset";
 function AppNavigation() {
   let element = useRoutes([
     {
@@ -21,8 +22,9 @@ function AppNavigation() {
         },
         { path: "/login", element: <Login /> },
         { path: "/signup", element: <Signup /> },
-        {path:'/form', element:<Form/>},
+        { path: "/form", element: <Form /> },
         { path: "/notification", element: <Notification /> },
+        { path: "/passwordreset", element: <PasswordReset /> },
 
         {
           path: "/admin",
